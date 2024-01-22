@@ -1,0 +1,19 @@
+package com.techwebdocs.second;
+
+import static com.techwebdocs.second.HeapSort.printArray;
+public class Second {
+
+    public static void main(String[] args) {
+        int arr[] = {55,45,16,66,99,43,14,68,23,46};
+        int n = arr.length;
+        System.out.println("Given Array: "); 
+        printArray(arr); 
+        
+        HeapSort ob = new HeapSort();
+        ob.sort(arr);
+ 
+        System.out.println("Sorted array is: ");
+        printArray(arr);
+    }
+}
+
