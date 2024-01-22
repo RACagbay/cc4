@@ -1,0 +1,16 @@
+package com.techwebdocs.fifth;
+public class Fifth {
+
+    public static void main(String[] args) {
+        SelectionSort ob = new SelectionSort(); 
+        int arr[] = {2,3,4,61,1,4,12,32,2,123};
+        System.out.println("Given Array: "); 
+        ob.printArray(arr);
+  
+        ob.sort(arr); 
+        System.out.println("Sorted array"); 
+        ob.printArray(arr); 
+    }
+}
+
+
