@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class StackSimulation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Stack<String> stack = new Stack<>();
+
+        while (true) {
+            System.out.println("STACK OPERATIONS:\n");
+            System.out.println("1. Push (Insert)\n");
+            System.out.println("2. Pop (Delete)\n");
+            System.out.println("3. Display Contents\n");
+            System.out.println("4. Terminate\n");
+
+            System.out.print("Enter your choice (1-4): ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    System.out.print("Enter the element to push: ");
+                    String element = scanner.nextLine();
+                    stack.push(element);
+                    displayContents(stack);
+                    break;
+
+                case "2":
+                    if (!stack.isEmpty()) {
+                        String poppedElement = stack.pop();
+                        System.out.println("Popped Element: " + poppedElement);
+                    } else {
+                        System.out.println("Stack is empty. Cannot perform POP operation.");
+                    }
+                    displayContents(stack);
+                    break;
+
+                case "3":
+                    displayContents(stack);
+                    break;
+
+                case "4":
+                    System.out.println("Terminating the program. Goodbye!");
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+
+    private static void displayContents(Stack<String> stack) {
+        if (!stack.isEmpty()) {
+            System.out.print("Stack Contents: ");
+            for (String element : stack) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Stack is empty.");
+        }
+    }
+}
