@@ -1,0 +1,63 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class QueueSimulation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Queue<String> queue = new LinkedList<>();
+
+        while (true) {
+            System.out.println("\nQUEUE OPERATIONS:");
+            System.out.println("1. Enqueue (Insert)");
+            System.out.println("2. Dequeue (Delete)");
+            System.out.println("3. Display Contents");
+            System.out.println("4. Terminate");
+
+            System.out.print("Enter your choice (1-4): ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    System.out.print("Enter the element to enqueue: ");
+                    String element = scanner.nextLine();
+                    queue.add(element);
+                    displayContents(queue);
+                    break;
+
+                case "2":
+                    if (!queue.isEmpty()) {
+                        String dequeuedElement = queue.poll();
+                        System.out.println("Dequeued Element: " + dequeuedElement);
+                    } else {
+                        System.out.println("Queue is empty. Cannot perform Dequeue operation.");
+                    }
+                    displayContents(queue);
+                    break;
+
+                case "3":
+                    displayContents(queue);
+                    break;
+
+                case "4":
+                    System.out.println("Terminating the program. Goodbye!");
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+
+    private static void displayContents(Queue<String> queue) {
+        if (!queue.isEmpty()) {
+            System.out.print("Queue Contents: ");
+            for (String element : queue) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Queue is empty.");
+        }
+    }
+}
